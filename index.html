@@ -10,6 +10,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sunset Sino da Paz · DJ SolG">
 <meta property="og:description" content="06 de setembro · Monumento Sino da Paz, Frei Rogério (SC). House, afro, deep e organic enquanto o sol cai.">
+<!-- Para a miniatura aparecer no WhatsApp, troque pela URL completa:
+     https://SEU-USUARIO.github.io/NOME-DO-REPO/cartaz.png -->
 <meta property="og:image" content="cartaz.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -166,6 +168,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 
 /* ---------- mochila ---------- */
 .pack__head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:20px}
+.pack__title{margin:0}
 .pack__count{font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
 .pack__bar{height:2px; background:rgba(255,233,206,.14); border-radius:2px; overflow:hidden; margin-bottom:26px}
 .pack__fill{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--ember)); transition:width .32s ease}
@@ -230,6 +233,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 .foot{border-top:1px solid rgba(255,185,63,.18); padding:44px 0 60px; text-align:center}
 .foot__name{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--cream); font-size:1.1rem}
 .foot__meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:12px 0 0}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
 [hidden]{display:none !important}
 </style>
 </head>
@@ -305,7 +309,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
   <section class="band" id="lugar">
     <div class="wrap place">
       <figure class="poster card">
-        <img src=".png" alt="Cartaz do Sunset Sino da Paz" id="poster-img">
+        <img id="poster-img" src="cartaz.png" alt="Cartaz do Sunset Sino da Paz">
         <div class="poster__ph" id="poster-ph" hidden>
           <strong>Cartaz do evento</strong>
           <span>Coloque a imagem como <code>cartaz.png</code> na mesma pasta do <code>index.html</code> e ela aparece aqui.</span>
@@ -326,7 +330,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
     <div class="wrap">
       <p class="eyebrow">Checklist da galera</p>
       <div class="pack__head">
-        <h2 style="margin:0">Leve na mochila</h2>
+        <h2 class="pack__title">Leve na mochila</h2>
         <p class="pack__count" id="pack-count" aria-live="polite">0 de 7 marcados</p>
       </div>
       <div class="pack__bar"><div class="pack__fill" id="pack-fill"></div></div>
@@ -373,8 +377,8 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 
       <div class="tracks card">
         <form class="tracks__form" id="track-form" autocomplete="off">
-          <label class="tracks__input" style="display:none" for="track-input">Nome da música</label>
-          <input class="tracks__input" id="track-input" type="text" maxlength="90" placeholder="Artista — Nome da faixa" aria-label="Nome da música">
+          <label class="sr-only" for="track-input">Nome da música</label>
+          <input class="tracks__input" id="track-input" type="text" maxlength="90" placeholder="Artista — Nome da faixa">
           <button class="btn" type="submit">Adicionar</button>
         </form>
         <p class="tracks__status" id="track-status" role="status"></p>
@@ -416,11 +420,23 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
   update();
 })();
 
-/* ---------- cartaz: mostra o aviso se a imagem não existir ---------- */
+/* ---------- cartaz ----------
+   Tenta os nomes mais prováveis, em ordem. O primeiro que carregar fica.
+   Se nenhum existir, mostra o aviso no lugar da imagem quebrada.        */
 (function(){
-  var img = document.getElementById('poster-img'), ph = document.getElementById('poster-ph');
-  img.addEventListener('error', function(){ img.hidden = true; ph.hidden = false; });
-  if(img.complete && img.naturalWidth === 0){ img.hidden = true; ph.hidden = false; }
+  var img = document.getElementById('poster-img');
+  var ph  = document.getElementById('poster-ph');
+  var nomes = ['cartaz.png','cartaz.PNG','Cartaz.png','cartaz.jpg','cartaz.jpeg','cartaz.webp'];
+  var i = 0;
+
+  function tentarProximo(){
+    i++;
+    if(i < nomes.length){ img.src = nomes[i]; }
+    else { img.hidden = true; ph.hidden = false; }
+  }
+
+  img.addEventListener('error', tentarProximo);
+  if(img.complete && img.naturalWidth === 0){ tentarProximo(); }
 })();
 
 /* ---------- checklist ---------- */
