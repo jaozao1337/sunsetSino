@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sunset Sino da Paz · DJ SolG · 06.09</title>
-<meta name="description" content="DJ SolG toca house, afro house e deep house ao pôr do sol no Monumento Sino da Paz, em Frei Rogério (SC). Dia 06 de setembro, ao ar livre.">
+<title>Sunset Sino da Paz · DJ SolG · 06.09 às 17h</title>
+<meta name="description" content="DJ SolG toca house, afro house e deep house ao pôr do sol no Monumento Sino da Paz, em Frei Rogério (SC). Dia 06 de setembro, set às 17h, ao ar livre.">
 <meta name="theme-color" content="#0A0512">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sunset Sino da Paz · DJ SolG">
-<meta property="og:description" content="06 de setembro · Monumento Sino da Paz, Frei Rogério (SC). House, afro, deep e organic enquanto o sol cai.">
+<meta property="og:description" content="06 de setembro, 17h · Monumento Sino da Paz, Frei Rogério (SC). House, afro, deep e organic enquanto o sol cai.">
 <!-- Para a miniatura aparecer no WhatsApp, troque pela URL completa:
-     https://SEU-USUARIO.github.io/NOME-DO-REPO/cartaz.png -->
+     https://jaozao1337.github.io/sunsetSino/cartaz.png -->
 <meta property="og:image" content="cartaz.png">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -116,6 +116,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 }
 .hero__meta span{display:flex; align-items:center; gap:9px}
 .hero__meta i{width:6px; height:6px; border-radius:50%; background:var(--ember); flex:none}
+.hero__meta em{font-style:normal; color:var(--gold)}
 .hero__line{max-width:46ch; margin-top:26px; font-size:1.05rem; color:#EFDCCF}
 .hero__scroll{
   margin-top:auto; padding-top:48px; font-family:var(--mono); font-size:11px;
@@ -203,13 +204,17 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 .tracks__input::placeholder{color:#8E7A90}
 .tracks__input:focus{border-color:var(--gold); outline:none; background:rgba(255,233,206,.1)}
 .btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none;
   font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:700;
   border:0; border-radius:14px; padding:16px 26px; cursor:pointer;
   background:var(--ember); color:#fff; transition:transform .18s ease,filter .18s ease;
 }
 .btn:hover{filter:brightness(1.12); transform:translateY(-2px)}
+.btn svg{width:17px; height:17px; flex:none}
 .btn--ghost{background:transparent; color:var(--gold); border:1px solid rgba(255,185,63,.4)}
 .btn--ghost:hover{background:rgba(255,185,63,.12)}
+.btn--quiet{background:transparent; color:var(--muted); border:1px solid rgba(255,233,206,.16)}
+.btn--quiet:hover{color:var(--cream); background:rgba(255,233,206,.06)}
 .tracks__status{min-height:22px; font-size:.84rem; color:var(--gold); margin:6px 0 0; font-family:var(--mono); letter-spacing:.04em}
 .tracks__list{list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:8px}
 .track{
@@ -227,12 +232,19 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 }
 .track__del:hover{color:var(--ember); background:rgba(255,107,44,.12)}
 .tracks__empty{margin:22px 0 0; color:var(--muted); font-size:.92rem}
-.tracks__foot{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
+.tracks__foot{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; align-items:center}
+.tracks__note{width:100%; margin:4px 0 0; font-size:.82rem; color:var(--muted)}
 
 /* ---------- rodapé ---------- */
 .foot{border-top:1px solid rgba(255,185,63,.18); padding:44px 0 60px; text-align:center}
 .foot__name{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--cream); font-size:1.1rem}
 .foot__meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:12px 0 0}
+.foot__wa{
+  display:inline-flex; align-items:center; gap:9px; margin-top:18px; text-decoration:none;
+  font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+}
+.foot__wa:hover{color:var(--ember)}
+.foot__wa svg{width:15px; height:15px}
 .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
 [hidden]{display:none !important}
 </style>
@@ -264,10 +276,10 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
       <h1 class="hero__title"><span>Sunset</span><span>Sino da Paz</span></h1>
       <div class="hero__meta">
         <span><i></i>Sábado, 06 de setembro</span>
-        <span><i></i>Monumento Sino da Paz</span>
-        <span><i></i>Frei Rogério · SC</span>
+        <span><i></i>Set às 17h — <em>chegue antes</em></span>
+        <span><i></i>Monumento Sino da Paz · Frei Rogério, SC</span>
       </div>
-      <p class="hero__line">Um set ao ar livre que começa com o sol ainda alto e termina no escuro. Sem tomada por perto, sem parede em volta: só o campo aberto, o sino e o som.</p>
+      <p class="hero__line">O som começa às 17h e vai até o escuro. Campo aberto, sem parede em volta e sem tomada por perto: só o sino, o pôr do sol e a caixa ligada.</p>
     </div>
     <div class="wrap"><p class="hero__scroll">Role para ver o sol descer ↓</p></div>
   </header>
@@ -319,7 +331,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
         <p class="eyebrow">O lugar</p>
         <h2>Monumento Sino da Paz</h2>
         <p class="lead">Campo aberto no alto de Frei Rogério, com vista limpa para o oeste. É o tipo de lugar onde o pôr do sol dura mais do que devia — e é exatamente por isso que o set é lá.</p>
-        <p>Chegue com folga: o melhor da luz acontece cedo e o estacionamento é o próprio campo. O chão é irregular, então venha de calçado fechado se puder.</p>
+        <p>O som começa às 17h, mas venha antes: o estacionamento é o próprio campo e os melhores lugares são os que pegam o sol de frente. O chão é irregular, então calçado fechado ajuda.</p>
         <a class="maps" href="https://www.google.com/maps/search/?api=1&query=Monumento+Sino+da+Paz+Frei+Rog%C3%A9rio+SC" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
       </div>
     </div>
@@ -350,7 +362,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
         </button></li>
         <li><button class="pack__item" type="button" aria-pressed="false">
           <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
-          <span><span class="pack__name">Óculos de sol</span><span class="pack__why">O sol bate de frente nas primeiras horas do set.</span></span>
+          <span><span class="pack__name">Óculos de sol</span><span class="pack__why">Às 17h o sol ainda bate de frente na pista.</span></span>
         </button></li>
         <li><button class="pack__item" type="button" aria-pressed="false">
           <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
@@ -373,7 +385,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
     <div class="wrap">
       <p class="eyebrow">Sugestão de tracks</p>
       <h2>Peça sua música</h2>
-      <p class="lead">Afro, deep, organic, vocal — se cabe no sunset, cabe na lista. Monte a sua e mande para o SolG antes do dia 6.</p>
+      <p class="lead">Afro, deep, organic, vocal — se cabe no sunset, cabe na lista. Monte a sua e mande direto para o SolG antes do dia 6.</p>
 
       <div class="tracks card">
         <form class="tracks__form" id="track-form" autocomplete="off">
@@ -387,8 +399,13 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
         <ul class="tracks__list" id="track-list"></ul>
 
         <div class="tracks__foot" id="track-foot" hidden>
+          <a class="btn" id="track-send" href="https://wa.me/5549988075176" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.2 8.2 0 01-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+            Mandar no WhatsApp
+          </a>
           <button class="btn btn--ghost" type="button" id="track-copy">Copiar lista</button>
-          <button class="btn btn--ghost" type="button" id="track-clear">Limpar tudo</button>
+          <button class="btn btn--quiet" type="button" id="track-clear">Limpar</button>
+          <p class="tracks__note">Abre uma conversa com o SolG já com a sua lista escrita. É só apertar enviar.</p>
         </div>
       </div>
     </div>
@@ -397,13 +414,20 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
   <footer class="foot">
     <div class="wrap">
       <p class="foot__name">DJ SolG · Sunset Sino da Paz</p>
-      <p class="foot__meta">06.09 · Frei Rogério, SC · até o sol sumir</p>
+      <p class="foot__meta">06.09 · 17h · Frei Rogério, SC · até o sol sumir</p>
+      <a class="foot__wa" href="https://wa.me/5549988075176" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.2 8.2 0 01-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.41a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+        Falar com o SolG
+      </a>
     </div>
   </footer>
 
 </div>
 
 <script>
+/* Número do DJ, só dígitos: 55 (país) + 49 (DDD) + número */
+var WHATSAPP = '5549988075176';
+
 /* ---------- céu: escurece conforme a página desce ---------- */
 (function(){
   var root = document.documentElement, ticking = false;
@@ -421,8 +445,7 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
 })();
 
 /* ---------- cartaz ----------
-   Tenta os nomes mais prováveis, em ordem. O primeiro que carregar fica.
-   Se nenhum existir, mostra o aviso no lugar da imagem quebrada.        */
+   Tenta os nomes mais prováveis, em ordem. O primeiro que carregar fica. */
 (function(){
   var img = document.getElementById('poster-img');
   var ph  = document.getElementById('poster-ph');
@@ -465,13 +488,19 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
   var empty = document.getElementById('track-empty');
   var foot = document.getElementById('track-foot');
   var status = document.getElementById('track-status');
+  var send = document.getElementById('track-send');
   var tracks = [];
   var timer;
 
   function say(msg){
     status.textContent = msg;
     clearTimeout(timer);
-    timer = setTimeout(function(){ status.textContent = ''; }, 3200);
+    timer = setTimeout(function(){ status.textContent = ''; }, 3600);
+  }
+
+  function mensagem(){
+    return 'Fala, SolG! Minhas sugestões pro Sunset Sino da Paz:\n\n'
+         + tracks.map(function(t){ return '• ' + t; }).join('\n');
   }
 
   function render(){
@@ -501,8 +530,10 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
       li.appendChild(disc); li.appendChild(label); li.appendChild(del);
       list.appendChild(li);
     });
+
     empty.hidden = tracks.length > 0;
     foot.hidden = tracks.length === 0;
+    send.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensagem());
   }
 
   form.addEventListener('submit', function(e){
@@ -515,14 +546,14 @@ p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
     input.value = '';
     input.focus();
     render();
-    say('Adicionada à sua lista.');
+    say('Adicionada. Quando terminar, manda no WhatsApp.');
   });
 
   document.getElementById('track-copy').addEventListener('click', function(){
-    var text = 'Sugestões para o Sunset Sino da Paz:\n' + tracks.map(function(t){ return '• ' + t; }).join('\n');
+    var text = mensagem();
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(text).then(
-        function(){ say('Lista copiada. Cole no WhatsApp e manda pro SolG.'); },
+        function(){ say('Lista copiada.'); },
         function(){ fallback(text); }
       );
     } else { fallback(text); }
