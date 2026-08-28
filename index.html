@@ -1,253 +1,537 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunset Sino da Paz | DJ SolG</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sunset Sino da Paz · DJ SolG · 06.09</title>
+<meta name="description" content="DJ SolG toca house, afro house e deep house ao pôr do sol no Monumento Sino da Paz, em Frei Rogério (SC). Dia 06 de setembro, ao ar livre.">
+<meta name="theme-color" content="#0A0512">
 
-        body {
-            background: linear-gradient(135deg, #1a0b2e 0%, #4a154b 50%, #e05c5c 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunset Sino da Paz · DJ SolG">
+<meta property="og:description" content="06 de setembro · Monumento Sino da Paz, Frei Rogério (SC). House, afro, deep e organic enquanto o sol cai.">
+<meta property="og:image" content="cartaz.jpg">
+<meta name="twitter:card" content="summary_large_image">
 
-        header {
-            text-align: center;
-            padding: 3rem 1rem;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-        }
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23FFB93F'/%3E%3C/svg%3E">
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #fddb92;
-            text-shadow: 0 0 15px rgba(253, 219, 146, 0.5);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Space+Mono:wght@400;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
 
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-        }
+<style>
+:root{
+  --void:#0A0512; --ink:#150A22; --plum:#3A1250; --wine:#7B2A5E;
+  --ember:#FF6B2C; --gold:#FFB93F; --cream:#FFE9CE; --mist:#E8D8CC; --muted:#AE95AE;
+  --display:'Unbounded',system-ui,sans-serif;
+  --body:'Montserrat',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+  --sunx:68%;
+  --p:0;
+  --wrap:1080px;
+}
+@media (max-width:820px){ :root{ --sunx:50%; } }
 
-        .date-location {
-            margin-top: 1rem;
-            font-size: 1rem;
-            color: #ffdcb0;
-        }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--void); color:var(--mist);
+  font-family:var(--body); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:4px}
 
-        main {
-            max-width: 800px;
-            width: 90%;
-            margin: 2rem auto;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
+/* ---------- céu que anoitece conforme a rolagem ---------- */
+.sky{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+.sky__dusk,.sky__night{position:absolute; inset:0}
+.sky__dusk{background:linear-gradient(180deg,#1B0A2E 0%,#3A1250 28%,#7B2A5E 55%,#D4502C 78%,#FFB03A 100%)}
+.sky__night{background:linear-gradient(180deg,#050209 0%,#0E0619 45%,#1C0B2C 78%,#2E1039 100%); opacity:var(--p)}
+.sky__sun{
+  position:absolute; left:var(--sunx); top:26%;
+  width:min(44vh,60vw); aspect-ratio:1; border-radius:50%;
+  transform:translate(-50%,calc(var(--p) * 66vh));
+  background:radial-gradient(circle,#FFF4D6 0%,#FFC96E 40%,#FF8636 68%,rgba(255,120,45,0) 72%);
+  box-shadow:0 0 22vh 6vh rgba(255,120,45,.30);
+  opacity:calc(1 - var(--p) * .45);
+}
+.sky__bell{
+  position:absolute; left:var(--sunx); bottom:6vh; width:min(30vh,44vw);
+  transform:translateX(-50%); color:#0B0413;
+  opacity:calc(.55 - var(--p) * .35);
+}
+.sky__bell svg{display:block; width:100%; height:auto}
+.sky__horizon{
+  position:absolute; left:0; right:0; bottom:0; height:22vh;
+  background:linear-gradient(180deg,rgba(11,4,19,0) 0%,rgba(11,4,19,.75) 45%,#0B0413 82%);
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .sky__sun{transform:translate(-50%,26vh)}
+}
 
-        section {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+/* ---------- estrutura ---------- */
+.page{position:relative; z-index:1}
+.wrap{width:min(100% - 40px,var(--wrap)); margin-inline:auto}
+.band{padding:clamp(60px,11vh,132px) 0}
 
-        h3 {
-            color: #fddb92;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            border-bottom: 2px solid rgba(253, 219, 146, 0.3);
-            padding-bottom: 0.5rem;
-        }
+.eyebrow{
+  font-family:var(--mono); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold); margin:0 0 18px; display:flex; align-items:center; gap:12px;
+}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--gold); opacity:.7; flex:none}
 
-        /* Imagem do Local */
-        .img-container {
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
+h2{
+  font-family:var(--display); font-weight:800; text-transform:uppercase;
+  font-size:clamp(1.7rem,4.6vw,3rem); line-height:1.02; letter-spacing:-.02em;
+  color:var(--cream); margin:0 0 22px;
+}
+p{margin:0 0 16px; max-width:62ch; color:var(--mist)}
+.lead{font-size:clamp(1rem,1.9vw,1.18rem); color:#F3E2D6}
 
-        .img-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s;
-        }
+.card{
+  background:rgba(18,8,28,.55); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,185,63,.20); border-radius:20px;
+}
 
-        .img-container img:hover {
-            transform: scale(1.05);
-        }
+/* ---------- hero ---------- */
+.hero{min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding:120px 0 40px}
+.hero__kicker{
+  font-family:var(--mono); font-size:13px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--cream); margin:0 0 26px;
+}
+.hero__kicker b{color:var(--gold); font-weight:700}
+.hero__title{
+  font-family:var(--display); font-weight:800; text-transform:uppercase;
+  font-size:clamp(2.9rem,12.5vw,8.6rem); line-height:.86; letter-spacing:-.035em;
+  margin:0; color:#FFF6E9; text-shadow:0 6px 40px rgba(58,18,80,.55);
+}
+.hero__title span{display:block}
+.hero__title span:last-child{font-size:.62em; color:var(--gold); margin-top:.12em; letter-spacing:-.02em}
+.hero__meta{
+  display:flex; flex-wrap:wrap; gap:10px 28px; margin:34px 0 0;
+  font-family:var(--mono); font-size:13.5px; letter-spacing:.06em; color:#F0DFD1;
+}
+.hero__meta span{display:flex; align-items:center; gap:9px}
+.hero__meta i{width:6px; height:6px; border-radius:50%; background:var(--ember); flex:none}
+.hero__line{max-width:46ch; margin-top:26px; font-size:1.05rem; color:#EFDCCF}
+.hero__scroll{
+  margin-top:auto; padding-top:48px; font-family:var(--mono); font-size:11px;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
+}
 
-        /* Checklist */
-        ul {
-            list-style-type: none;
-        }
+/* ---------- marquee de estilos ---------- */
+.ticker{
+  border-block:1px solid rgba(255,185,63,.22); overflow:hidden; padding:14px 0;
+  background:rgba(10,4,18,.42); backdrop-filter:blur(8px);
+}
+.ticker__track{display:flex; width:max-content; animation:slide 26s linear infinite}
+.ticker__group{
+  display:flex; gap:44px; padding-right:44px;
+  font-family:var(--display); font-weight:600; text-transform:uppercase;
+  font-size:14px; letter-spacing:.1em; color:var(--cream); white-space:nowrap;
+}
+.ticker__group b{color:var(--ember); font-weight:600}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){ .ticker__track{animation:none} }
 
-        li {
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-        }
+/* ---------- faixa som / luz / câmera ---------- */
+.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.fact{padding:26px 24px}
+.fact h3{
+  font-family:var(--mono); font-size:11px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--gold); margin:0 0 12px; font-weight:700;
+}
+.fact p{margin:0; font-size:.95rem; color:#EADACE}
+@media (max-width:760px){ .facts{grid-template-columns:1fr} }
 
-        li::before {
-            content: "✓";
-            color: #e05c5c;
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
+/* ---------- o lugar ---------- */
+.place{display:grid; grid-template-columns:.9fr 1.1fr; gap:clamp(24px,4vw,54px); align-items:start}
+@media (max-width:860px){ .place{grid-template-columns:1fr} }
+.poster{margin:0; padding:12px; overflow:hidden}
+.poster img{display:block; width:100%; height:auto; border-radius:12px}
+.poster__ph{
+  aspect-ratio:4/5; border:1px dashed rgba(255,185,63,.38); border-radius:12px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+  padding:28px; text-align:center; color:var(--muted); font-size:.86rem;
+}
+.poster__ph code{font-family:var(--mono); color:var(--gold); font-size:.82rem}
+.maps{
+  display:inline-flex; align-items:center; gap:10px; margin-top:8px;
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--void); background:var(--gold); text-decoration:none;
+  padding:14px 22px; border-radius:999px; font-weight:700; transition:transform .18s ease,background .18s ease;
+}
+.maps:hover{background:var(--ember); color:#fff; transform:translateY(-2px)}
 
-        /* Sugestões de Música */
-        .form-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 1rem;
-        }
+/* ---------- mochila ---------- */
+.pack__head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:20px}
+.pack__count{font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
+.pack__bar{height:2px; background:rgba(255,233,206,.14); border-radius:2px; overflow:hidden; margin-bottom:26px}
+.pack__fill{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--ember)); transition:width .32s ease}
+.pack__list{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:12px; margin:0; padding:0; list-style:none}
+.pack__item{
+  display:flex; gap:16px; align-items:flex-start; width:100%; text-align:left; cursor:pointer;
+  font:inherit; color:inherit; padding:18px 20px;
+  background:rgba(18,8,28,.55); border:1px solid rgba(255,185,63,.18); border-radius:16px;
+  backdrop-filter:blur(12px); transition:border-color .2s ease,background .2s ease,transform .2s ease;
+}
+.pack__item:hover{border-color:rgba(255,185,63,.5); transform:translateY(-2px)}
+.pack__box{
+  width:22px; height:22px; border-radius:7px; border:1.5px solid rgba(255,233,206,.45);
+  flex:none; margin-top:2px; display:grid; place-items:center; transition:all .2s ease;
+}
+.pack__box svg{width:12px; height:12px; opacity:0; transform:scale(.6); transition:all .2s ease}
+.pack__item[aria-pressed="true"] .pack__box{background:var(--gold); border-color:var(--gold)}
+.pack__item[aria-pressed="true"] .pack__box svg{opacity:1; transform:scale(1)}
+.pack__item[aria-pressed="true"] .pack__name{text-decoration:line-through; color:var(--muted)}
+.pack__item[aria-pressed="true"]{background:rgba(18,8,28,.3)}
+.pack__name{display:block; font-weight:600; color:var(--cream); margin-bottom:3px}
+.pack__why{display:block; font-size:.84rem; color:var(--muted); line-height:1.5}
 
-        input[type="text"] {
-            flex: 1;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            font-size: 1rem;
-        }
+/* ---------- tracks ---------- */
+.tracks{padding:clamp(26px,4vw,42px)}
+.tracks__form{display:flex; gap:12px; margin:0 0 8px; flex-wrap:wrap}
+.tracks__input{
+  flex:1 1 260px; min-width:0; font:inherit; color:var(--cream);
+  background:rgba(255,233,206,.06); border:1px solid rgba(255,233,206,.22);
+  border-radius:14px; padding:16px 18px;
+}
+.tracks__input::placeholder{color:#8E7A90}
+.tracks__input:focus{border-color:var(--gold); outline:none; background:rgba(255,233,206,.1)}
+.btn{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:700;
+  border:0; border-radius:14px; padding:16px 26px; cursor:pointer;
+  background:var(--ember); color:#fff; transition:transform .18s ease,filter .18s ease;
+}
+.btn:hover{filter:brightness(1.12); transform:translateY(-2px)}
+.btn--ghost{background:transparent; color:var(--gold); border:1px solid rgba(255,185,63,.4)}
+.btn--ghost:hover{background:rgba(255,185,63,.12)}
+.tracks__status{min-height:22px; font-size:.84rem; color:var(--gold); margin:6px 0 0; font-family:var(--mono); letter-spacing:.04em}
+.tracks__list{list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:8px}
+.track{
+  display:flex; align-items:center; gap:14px; padding:14px 16px;
+  background:rgba(255,233,206,.05); border:1px solid rgba(255,233,206,.12); border-radius:14px;
+  animation:pop .28s ease both;
+}
+@keyframes pop{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+@media (prefers-reduced-motion:reduce){ .track{animation:none} }
+.track__disc{width:12px; height:12px; border-radius:50%; border:3px solid var(--gold); flex:none}
+.track__name{flex:1; min-width:0; overflow-wrap:anywhere; color:var(--cream); font-weight:500}
+.track__del{
+  background:none; border:0; color:var(--muted); cursor:pointer; font-size:20px; line-height:1;
+  padding:6px 8px; border-radius:8px; flex:none;
+}
+.track__del:hover{color:var(--ember); background:rgba(255,107,44,.12)}
+.tracks__empty{margin:22px 0 0; color:var(--muted); font-size:.92rem}
+.tracks__foot{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
 
-        button {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            background: #e05c5c;
-            color: white;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: #c74b4b;
-        }
-
-        .vibe-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            background: rgba(253, 219, 146, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #fddb92;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-    </style>
+/* ---------- rodapé ---------- */
+.foot{border-top:1px solid rgba(255,185,63,.18); padding:44px 0 60px; text-align:center}
+.foot__name{font-family:var(--display); font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--cream); font-size:1.1rem}
+.foot__meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin:12px 0 0}
+[hidden]{display:none !important}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>DJ SolG</h1>
-        <h2>Sunset Sino da Paz</h2>
-        <p class="date-location">📍 Frei Rogério, SC | 🗓️ 06 de Setembro</p>
-    </header>
+<div class="sky" aria-hidden="true">
+  <div class="sky__dusk"></div>
+  <div class="sky__night"></div>
+  <div class="sky__sun"></div>
+  <div class="sky__bell">
+    <svg viewBox="0 0 200 150" fill="currentColor" aria-hidden="true">
+      <rect x="94" y="4" width="12" height="14" rx="4"/>
+      <path d="M100 20c30 16 40 56 40 96H60c0-40 10-80 40-96z"/>
+      <rect x="48" y="112" width="104" height="16" rx="8"/>
+      <circle cx="100" cy="138" r="9"/>
+    </svg>
+  </div>
+  <div class="sky__horizon"></div>
+</div>
 
-    <main>
-        <!-- Seção do Local -->
-        <section id="local">
-            <h3>O Local</h3>
-            <div class="img-container">
-                <!-- SUBSTITUA O NOME DA IMAGEM AQUI -->
-                <img src="https://i.imgur.com/Qk9sBvq.jpg" alt="Monumento Sino da Paz">
-            </div>
-            <p>Preparados para um fim de tarde épico? O set começa no fim da tarde, aproveitando a golden hour com a melhor vista e a melhor vibe acústica.</p>
-        </section>
+<div class="page">
 
-        <!-- Seção de Checklist -->
-        <section id="checklist">
-            <h3>Checklist da Galera</h3>
-            <p style="margin-bottom: 1rem; opacity: 0.9;">Já manda o link pro Roger, Pietro, Mariana, Zirig e Amanda conferirem o que não pode faltar:</p>
-            <ul>
-                <li>Agasalho / Corta-vento (esfria quando o sol cai!)</li>
-                <li>Cooler com gelo e as bebidas</li>
-                <li>Cadeiras de praia para curtir o som confortável</li>
-                <li>Óculos de sol para as fotos e vídeos do drone</li>
-                <li>Sacos de lixo (vamos deixar o monumento intacto)</li>
-            </ul>
-        </section>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <p class="hero__kicker"><b>DJ SolG</b> apresenta</p>
+      <h1 class="hero__title"><span>Sunset</span><span>Sino da Paz</span></h1>
+      <div class="hero__meta">
+        <span><i></i>Sábado, 06 de setembro</span>
+        <span><i></i>Monumento Sino da Paz</span>
+        <span><i></i>Frei Rogério · SC</span>
+      </div>
+      <p class="hero__line">Um set ao ar livre que começa com o sol ainda alto e termina no escuro. Sem tomada por perto, sem parede em volta: só o campo aberto, o sino e o som.</p>
+    </div>
+    <div class="wrap"><p class="hero__scroll">Role para ver o sol descer ↓</p></div>
+  </header>
 
-        <!-- Seção de Músicas -->
-        <section id="musica">
-            <h3>Vibe do Set & Sugestões</h3>
-            <div class="vibe-tags">
-                <span class="tag">Afro House</span>
-                <span class="tag">Deep House</span>
-                <span class="tag">Organic House</span>
-                <span class="tag">Vocal House</span>
-            </div>
-            <p>O som vai viajar entre batidas orgânicas e melodias profundas. Quer ouvir alguma track específica no meio do set?</p>
-            
-            <div class="form-group">
-                <input type="text" id="trackInput" placeholder="Ex: Keinemusik - Move...">
-                <button onclick="adicionarMusica()">Sugerir</button>
-            </div>
-            
-            <ul id="listaSugestoes" style="margin-top: 1.5rem;">
-                <!-- As sugestões aparecerão aqui -->
-            </ul>
-        </section>
-    </main>
+  <!-- ESTILOS -->
+  <div class="ticker">
+    <div class="ticker__track">
+      <div class="ticker__group">
+        <span>House</span><b>✷</b><span>Afro House</span><b>✷</b><span>Deep House</span><b>✷</b><span>Organic House</span><b>✷</b><span>Vocal House</span><b>✷</b>
+      </div>
+      <div class="ticker__group" aria-hidden="true">
+        <span>House</span><b>✷</b><span>Afro House</span><b>✷</b><span>Deep House</span><b>✷</b><span>Organic House</span><b>✷</b><span>Vocal House</span><b>✷</b>
+      </div>
+    </div>
+  </div>
 
-    <footer>
-        <p>Desenvolvido por SolG. Nos vemos no Sunset!</p>
-    </footer>
+  <!-- COMO VAI SER -->
+  <section class="band">
+    <div class="wrap">
+      <p class="eyebrow">Como vai ser</p>
+      <div class="facts">
+        <div class="fact card">
+          <h3>Som</h3>
+          <p>Duas JBL PartyBox abertas em estéreo, uma de cada lado da cabine. Fica no meio para ouvir do jeito certo.</p>
+        </div>
+        <div class="fact card">
+          <h3>Luz</h3>
+          <p>Bastões de LED em tom quente enquanto o sol cai, virando cor cheia quando escurece.</p>
+        </div>
+        <div class="fact card">
+          <h3>Câmera</h3>
+          <p>Drone por cima e câmera fixa de frente para a cabine. A pista vai aparecer no vídeo — dance de acordo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        function adicionarMusica() {
-            const input = document.getElementById('trackInput');
-            const lista = document.getElementById('listaSugestoes');
-            
-            if (input.value.trim() !== '') {
-                const li = document.createElement('li');
-                li.textContent = input.value;
-                li.style.color = "#fddb92";
-                li.style.fontSize = "0.95rem";
-                
-                lista.appendChild(li);
-                input.value = '';
-                
-                alert("Boa! Sugestão anotada pro set.");
-            }
-        }
-    </script>
+  <!-- O LUGAR -->
+  <section class="band" id="lugar">
+    <div class="wrap place">
+      <figure class="poster card">
+        <img src="cartaz.jpg" alt="Cartaz do Sunset Sino da Paz" id="poster-img">
+        <div class="poster__ph" id="poster-ph" hidden>
+          <strong>Cartaz do evento</strong>
+          <span>Coloque a imagem como <code>cartaz.jpg</code> na mesma pasta do <code>index.html</code> e ela aparece aqui.</span>
+        </div>
+      </figure>
+      <div>
+        <p class="eyebrow">O lugar</p>
+        <h2>Monumento Sino da Paz</h2>
+        <p class="lead">Campo aberto no alto de Frei Rogério, com vista limpa para o oeste. É o tipo de lugar onde o pôr do sol dura mais do que devia — e é exatamente por isso que o set é lá.</p>
+        <p>Chegue com folga: o melhor da luz acontece cedo e o estacionamento é o próprio campo. O chão é irregular, então venha de calçado fechado se puder.</p>
+        <a class="maps" href="https://www.google.com/maps/search/?api=1&query=Monumento+Sino+da+Paz+Frei+Rog%C3%A9rio+SC" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- MOCHILA -->
+  <section class="band" id="mochila">
+    <div class="wrap">
+      <p class="eyebrow">Checklist da galera</p>
+      <div class="pack__head">
+        <h2 style="margin:0">Leve na mochila</h2>
+        <p class="pack__count" id="pack-count" aria-live="polite">0 de 7 marcados</p>
+      </div>
+      <div class="pack__bar"><div class="pack__fill" id="pack-fill"></div></div>
+
+      <ul class="pack__list" id="pack-list">
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Agasalho ou corta-vento</span><span class="pack__why">O vento vira assim que o sol some.</span></span>
+        </button></li>
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Cooler com gelo</span><span class="pack__why">Não tem bar no meio do campo. O que você levar é o que vai ter.</span></span>
+        </button></li>
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Cadeira de praia ou canga</span><span class="pack__why">A grama esfria rápido depois do fim da tarde.</span></span>
+        </button></li>
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Óculos de sol</span><span class="pack__why">O sol bate de frente nas primeiras horas do set.</span></span>
+        </button></li>
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Saco de lixo</span><span class="pack__why">Tudo o que entra volta com a gente. O campo fica como estava.</span></span>
+        </button></li>
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Lanterna ou luz de cabeça</span><span class="pack__why">Depois que escurece, achar a chave do carro vira missão.</span></span>
+        </button></li>
+        <li><button class="pack__item" type="button" aria-pressed="false">
+          <span class="pack__box"><svg viewBox="0 0 16 16" fill="none" stroke="#150A22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg></span>
+          <span><span class="pack__name">Repelente e água</span><span class="pack__why">Fim de tarde no campo tem mosquito e tem sede.</span></span>
+        </button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section class="band" id="tracks">
+    <div class="wrap">
+      <p class="eyebrow">Sugestão de tracks</p>
+      <h2>Peça sua música</h2>
+      <p class="lead">Afro, deep, organic, vocal — se cabe no sunset, cabe na lista. Monte a sua e mande para o SolG antes do dia 6.</p>
+
+      <div class="tracks card">
+        <form class="tracks__form" id="track-form" autocomplete="off">
+          <label class="tracks__input" style="display:none" for="track-input">Nome da música</label>
+          <input class="tracks__input" id="track-input" type="text" maxlength="90" placeholder="Artista — Nome da faixa" aria-label="Nome da música">
+          <button class="btn" type="submit">Adicionar</button>
+        </form>
+        <p class="tracks__status" id="track-status" role="status"></p>
+
+        <p class="tracks__empty" id="track-empty">Nenhuma faixa ainda. Comece pela que você quer ouvir na hora exata em que o sol encostar no horizonte.</p>
+        <ul class="tracks__list" id="track-list"></ul>
+
+        <div class="tracks__foot" id="track-foot" hidden>
+          <button class="btn btn--ghost" type="button" id="track-copy">Copiar lista</button>
+          <button class="btn btn--ghost" type="button" id="track-clear">Limpar tudo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__name">DJ SolG · Sunset Sino da Paz</p>
+      <p class="foot__meta">06.09 · Frei Rogério, SC · até o sol sumir</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* ---------- céu: escurece conforme a página desce ---------- */
+(function(){
+  var root = document.documentElement, ticking = false;
+  function update(){
+    var h = document.body.scrollHeight - window.innerHeight;
+    var p = h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
+    root.style.setProperty('--p', p.toFixed(4));
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+
+/* ---------- cartaz: mostra o aviso se a imagem não existir ---------- */
+(function(){
+  var img = document.getElementById('poster-img'), ph = document.getElementById('poster-ph');
+  img.addEventListener('error', function(){ img.hidden = true; ph.hidden = false; });
+  if(img.complete && img.naturalWidth === 0){ img.hidden = true; ph.hidden = false; }
+})();
+
+/* ---------- checklist ---------- */
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.pack__item'));
+  var count = document.getElementById('pack-count'), fill = document.getElementById('pack-fill');
+  function refresh(){
+    var on = items.filter(function(b){ return b.getAttribute('aria-pressed') === 'true'; }).length;
+    count.textContent = on + ' de ' + items.length + (on === items.length ? ' — mochila pronta' : ' marcados');
+    fill.style.width = (on / items.length * 100) + '%';
+  }
+  items.forEach(function(b){
+    b.addEventListener('click', function(){
+      b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      refresh();
+    });
+  });
+  refresh();
+})();
+
+/* ---------- sugestão de tracks ---------- */
+(function(){
+  var form = document.getElementById('track-form');
+  var input = document.getElementById('track-input');
+  var list = document.getElementById('track-list');
+  var empty = document.getElementById('track-empty');
+  var foot = document.getElementById('track-foot');
+  var status = document.getElementById('track-status');
+  var tracks = [];
+  var timer;
+
+  function say(msg){
+    status.textContent = msg;
+    clearTimeout(timer);
+    timer = setTimeout(function(){ status.textContent = ''; }, 3200);
+  }
+
+  function render(){
+    list.textContent = '';
+    tracks.forEach(function(name, i){
+      var li = document.createElement('li');
+      li.className = 'track';
+
+      var disc = document.createElement('span');
+      disc.className = 'track__disc';
+
+      var label = document.createElement('span');
+      label.className = 'track__name';
+      label.textContent = name;
+
+      var del = document.createElement('button');
+      del.className = 'track__del';
+      del.type = 'button';
+      del.textContent = '×';
+      del.setAttribute('aria-label', 'Remover ' + name);
+      del.addEventListener('click', function(){
+        tracks.splice(i, 1);
+        render();
+        say('Faixa removida.');
+      });
+
+      li.appendChild(disc); li.appendChild(label); li.appendChild(del);
+      list.appendChild(li);
+    });
+    empty.hidden = tracks.length > 0;
+    foot.hidden = tracks.length === 0;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var value = input.value.trim().replace(/\s+/g, ' ');
+    if(!value){ say('Escreva o nome da faixa primeiro.'); input.focus(); return; }
+    var dupe = tracks.some(function(t){ return t.toLowerCase() === value.toLowerCase(); });
+    if(dupe){ say('Essa já está na lista.'); return; }
+    tracks.push(value);
+    input.value = '';
+    input.focus();
+    render();
+    say('Adicionada à sua lista.');
+  });
+
+  document.getElementById('track-copy').addEventListener('click', function(){
+    var text = 'Sugestões para o Sunset Sino da Paz:\n' + tracks.map(function(t){ return '• ' + t; }).join('\n');
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(
+        function(){ say('Lista copiada. Cole no WhatsApp e manda pro SolG.'); },
+        function(){ fallback(text); }
+      );
+    } else { fallback(text); }
+  });
+
+  function fallback(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); say('Lista copiada.'); }
+    catch(err){ say('Não deu para copiar. Selecione a lista na mão.'); }
+    document.body.removeChild(ta);
+  }
+
+  document.getElementById('track-clear').addEventListener('click', function(){
+    tracks = [];
+    render();
+    say('Lista zerada.');
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
