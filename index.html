@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Sino da Paz | DJ SolG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a0b2e 0%, #4a154b 50%, #e05c5c 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fddb92;
+            text-shadow: 0 0 15px rgba(253, 219, 146, 0.5);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .date-location {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #ffdcb0;
+        }
+
+        main {
+            max-width: 800px;
+            width: 90%;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h3 {
+            color: #fddb92;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid rgba(253, 219, 146, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Imagem do Local */
+        .img-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .img-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Checklist */
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        li::before {
+            content: "✓";
+            color: #e05c5c;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Sugestões de Música */
+        .form-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background: #e05c5c;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #c74b4b;
+        }
+
+        .vibe-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(253, 219, 146, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #fddb92;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DJ SolG</h1>
+        <h2>Sunset Sino da Paz</h2>
+        <p class="date-location">📍 Frei Rogério, SC | 🗓️ 06 de Setembro</p>
+    </header>
+
+    <main>
+        <!-- Seção do Local -->
+        <section id="local">
+            <h3>O Local</h3>
+            <div class="img-container">
+                <!-- SUBSTITUA O NOME DA IMAGEM AQUI -->
+                <img src="https://i.imgur.com/Qk9sBvq.jpg" alt="Monumento Sino da Paz">
+            </div>
+            <p>Preparados para um fim de tarde épico? O set começa no fim da tarde, aproveitando a golden hour com a melhor vista e a melhor vibe acústica.</p>
+        </section>
+
+        <!-- Seção de Checklist -->
+        <section id="checklist">
+            <h3>Checklist da Galera</h3>
+            <p style="margin-bottom: 1rem; opacity: 0.9;">Já manda o link pro Roger, Pietro, Mariana, Zirig e Amanda conferirem o que não pode faltar:</p>
+            <ul>
+                <li>Agasalho / Corta-vento (esfria quando o sol cai!)</li>
+                <li>Cooler com gelo e as bebidas</li>
+                <li>Cadeiras de praia para curtir o som confortável</li>
+                <li>Óculos de sol para as fotos e vídeos do drone</li>
+                <li>Sacos de lixo (vamos deixar o monumento intacto)</li>
+            </ul>
+        </section>
+
+        <!-- Seção de Músicas -->
+        <section id="musica">
+            <h3>Vibe do Set & Sugestões</h3>
+            <div class="vibe-tags">
+                <span class="tag">Afro House</span>
+                <span class="tag">Deep House</span>
+                <span class="tag">Organic House</span>
+                <span class="tag">Vocal House</span>
+            </div>
+            <p>O som vai viajar entre batidas orgânicas e melodias profundas. Quer ouvir alguma track específica no meio do set?</p>
+            
+            <div class="form-group">
+                <input type="text" id="trackInput" placeholder="Ex: Keinemusik - Move...">
+                <button onclick="adicionarMusica()">Sugerir</button>
+            </div>
+            
+            <ul id="listaSugestoes" style="margin-top: 1.5rem;">
+                <!-- As sugestões aparecerão aqui -->
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por SolG. Nos vemos no Sunset!</p>
+    </footer>
+
+    <script>
+        function adicionarMusica() {
+            const input = document.getElementById('trackInput');
+            const lista = document.getElementById('listaSugestoes');
+            
+            if (input.value.trim() !== '') {
+                const li = document.createElement('li');
+                li.textContent = input.value;
+                li.style.color = "#fddb92";
+                li.style.fontSize = "0.95rem";
+                
+                lista.appendChild(li);
+                input.value = '';
+                
+                alert("Boa! Sugestão anotada pro set.");
+            }
+        }
+    </script>
+
+</body>
+</html>
